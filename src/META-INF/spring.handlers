@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/mycontext=org.springframework.context.config.MyContextNamespaceHandler
+http\://www.springframework.org/schema/mymvc=org.springframework.web.servlet.config.MyMvcNamespaceHandler

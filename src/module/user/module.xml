@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="user">
+	<links>
+		<link name="login" value="/user/login" />
+		<link name="register" value="/user/register" />
+		<link name="logout" value="/user/logout" />
+	</links>
+</module>

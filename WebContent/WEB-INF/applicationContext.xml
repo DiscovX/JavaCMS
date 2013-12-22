@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" >
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/cms</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>admin</value>
+		</property>
+	</bean>	
+	<!--  
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:core/*/*.hbm.xml</value>
+				<value>classpath:module/*/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>	
+	-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>*</value>
+			</list>
+		</property>
+	</bean>	
+	<!-- singleton -->
+	<bean id="moduleDAO" scope="singleton" class="core.ModuleDAO">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>	
+	
+	<!-- singleton -->
+	<bean id="moduleLinkDAO" scope="singleton" class="core.ModuleLinkDAO">
+		<property name="sessionFactory" ref="sessionFactory">
+		</property>
+	</bean>	
+	
+	<!-- singleton -->
+	<bean id="pageTemplate" class="core.PageTemplate" scope="singleton"></bean>	
+	
+	<!-- singleton -->
+    <bean id="navigationBar" class="module.NavigationBarRenderer"></bean>
+</beans>

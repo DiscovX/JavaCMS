@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/mycontext/spring-mycontext-3.0.xsd=org/springframework/context/config/spring-mycontext-3.0.xsd
+http\://www.springframework.org/schema/mymvc/spring-mymvc-3.0.xsd=org/springframework/web/servlet/config/spring-mymvc-3.0.xsd

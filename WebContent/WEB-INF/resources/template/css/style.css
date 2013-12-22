@@ -1,0 +1,27 @@
+body {
+	margin:0px;
+	padding:0px;
+}
+
+#header {
+	height:237px;
+}
+
+#content {
+	margin:0 auto;
+	width:80%;
+}
+
+#left {
+	width:20%;
+	display:inline-block;
+}
+
+#middle {
+	width:60%;
+	display:inline-block;
+}
+
+#right {
+	width:20%;
+}
